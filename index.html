@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Joshua's Website</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            text-align: center;
+        }
+
+        .hero {
+            padding-top: 120px;
+        }
+
+        h1 {
+            font-size: 65px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 24px;
+            opacity: 0.9;
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 15px 35px;
+            font-size: 20px;
+            border: none;
+            border-radius: 12px;
+            background: white;
+            color: #203a43;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .card {
+            margin: 80px auto;
+            width: 300px;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero">
+        <h1>Joshua's Website</h1>
+
+        <p>Future developer, pianist, and entrepreneur.</p>
+
+        <button onclick="hello()">
+            Click Me
+        </button>
+    </div>
+
+    <div class="card">
+        <h2>About Me</h2>
+
+        <p>
+            I built this website using HTML, CSS, and JavaScript.
+        </p>
+    </div>
+
+    <script>
+        function hello() {
+            alert("Your website is working!");
+        }
+    </script>
+
+</body>
+</html>
