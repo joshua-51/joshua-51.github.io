@@ -3,338 +3,357 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joshua | Developer Portfolio</title>
+    <title>Joshua | Freshman Entrepreneur</title>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,700;0,900;1,900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
+        :root {
+            --orange: #ff6b00;
+            --black: #000000;
+            --white: #ffffff;
+            --grey: #161617;
+            --font: 'Inter', -apple-system, system-ui, sans-serif;
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        
         body {
-            font-family: 'Poppins', sans-serif;
-            background: #0b0f19;
-            color: white;
+            font-family: var(--font);
+            background: var(--black);
+            color: var(--white);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- NAVBAR --- */
-        nav {
+        /* --- STUNNING BACKGROUND VIBE --- */
+        .canvas-bg {
             position: fixed;
-            width: 100%;
-            top: 0;
-            padding: 20px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(11, 15, 25, 0.8);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1a0a00 0%, #000000 100%);
+            z-index: -1;
         }
 
-        nav h1 {
-            font-size: 24px;
-            color: #6ea8fe;
-            letter-spacing: 1px;
-        }
-
-        nav .links a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            font-weight: 400;
-            transition: 0.3s;
-            font-size: 0.95rem;
-        }
-
-        nav .links a:hover {
-            color: #6ea8fe;
-        }
-
-        /* --- HERO SECTION --- */
+        /* --- HERO: THE INTRO --- */
         .hero {
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            text-align: center;
-            padding: 20px;
-            background: 
-                radial-gradient(circle at 10% 20%, rgba(31, 59, 115, 0.3), transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(0, 194, 255, 0.15), transparent 40%);
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid #6ea8fe;
-            margin-bottom: 25px;
-            object-fit: cover;
-            box-shadow: 0 0 20px rgba(110, 168, 254, 0.3);
-        }
-
-        .hero h2 {
-            font-size: clamp(40px, 8vw, 70px);
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .hero span {
-            color: #6ea8fe;
-            text-shadow: 0 0 15px rgba(110, 168, 254, 0.4);
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            max-width: 600px;
-            opacity: 0.8;
-            line-height: 1.6;
-        }
-
-        .hero-socials {
-            margin-top: 30px;
-            display: flex;
-            gap: 20px;
-        }
-
-        .hero-socials a {
-            color: white;
-            font-size: 24px;
-            transition: 0.3s;
-        }
-
-        .hero-socials a:hover {
-            color: #6ea8fe;
-            transform: translateY(-3px);
-        }
-
-        .cta-button {
-            margin-top: 30px;
-            text-decoration: none;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            background: #2563eb;
-            font-weight: 600;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            background: #3b82f6;
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
-            transform: translateY(-2px);
-        }
-
-        /* --- SECTIONS --- */
-        section {
-            padding: 100px 10%;
-        }
-
-        .section-title {
-            font-size: 36px;
-            margin-bottom: 50px;
             text-align: center;
             position: relative;
+            z-index: 10;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 4px;
-            background: #6ea8fe;
-            margin: 10px auto;
-            border-radius: 2px;
-        }
-
-        /* --- PROJECT GRID --- */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 35px;
-            border-radius: 20px;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.06);
-            border-color: #6ea8fe;
-        }
-
-        .card i {
-            font-size: 30px;
-            color: #6ea8fe;
+        .hero h1 {
+            font-size: clamp(4rem, 18vw, 12rem);
+            font-weight: 900;
+            letter-spacing: -0.06em;
+            line-height: 0.8;
             margin-bottom: 20px;
         }
 
-        .card h3 {
-            margin-bottom: 15px;
-            font-size: 22px;
+        .hero h1 span {
+            display: block;
+            background: linear-gradient(180deg, #fff 40%, var(--orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-style: italic;
         }
 
-        .card p {
-            opacity: 0.7;
-            font-size: 0.95rem;
-            line-height: 1.6;
+        .hero p {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: var(--orange);
+            font-weight: 700;
+            margin-top: 20px;
         }
 
-        /* --- SKILLS --- */
-        .skills-container {
+        /* --- FLOWING CONTENT SECTIONS --- */
+        .scroll-section {
+            padding: 20vh 10%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .content-right { justify-content: flex-end; text-align: right; }
+
+        .visual-card {
+            max-width: 700px;
+            position: relative;
+        }
+
+        .visual-card h2 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            margin-bottom: 30px;
+        }
+
+        .visual-card p {
+            font-size: 1.5rem;
+            color: #86868b;
+            line-height: 1.4;
+            margin-bottom: 30px;
+        }
+
+        .skill-list {
+            list-style: none;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
             gap: 15px;
-            max-width: 800px;
-            margin: 0 auto;
+            justify-content: inherit;
         }
 
         .skill-tag {
-            padding: 10px 20px;
-            border-radius: 10px;
-            background: #161b2a;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--grey);
+            padding: 12px 25px;
+            border-radius: 100px;
+            font-weight: 600;
             font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.1);
             transition: 0.3s;
         }
 
         .skill-tag:hover {
-            background: #6ea8fe;
-            color: #0b0f19;
-            transform: scale(1.1);
-            font-weight: 600;
+            border-color: var(--orange);
+            color: var(--orange);
+        }
+
+        /* --- THE PROJECTS PORTAL --- */
+        .portal-section {
+            padding: 150px 0;
+            background: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .portal-banner {
+            text-decoration: none;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.8s var(--ease);
+        }
+
+        .portal-banner h2 {
+            font-size: clamp(4rem, 20vw, 15rem);
+            color: var(--black);
+            font-weight: 900;
+            letter-spacing: -0.07em;
+            line-height: 0.8;
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .portal-banner:hover h2 {
+            transform: scale(1.05);
+            color: var(--orange);
+        }
+
+        /* --- NARRATIVE SECTION --- */
+        .narrative-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 80px;
+            padding: 100px 10%;
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .narrative-item h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .narrative-item p {
+            font-size: 1.2rem;
+            color: #424245;
+            line-height: 1.6;
         }
 
         /* --- CONTACT --- */
-        .contact-box {
-            background: linear-gradient(145deg, #111827, #0b0f19);
-            padding: 50px;
-            border-radius: 30px;
+        .footer-contact {
+            padding: 150px 10%;
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-            border: 1px solid rgba(110, 168, 254, 0.2);
+            background: var(--white);
+            color: var(--black);
         }
 
-        .contact-box a {
-            color: #6ea8fe;
+        .footer-contact a {
+            font-size: clamp(2rem, 10vw, 6rem);
+            font-weight: 900;
+            color: var(--black);
             text-decoration: none;
-            font-weight: 600;
+            letter-spacing: -0.05em;
+            transition: 0.3s;
         }
+
+        .footer-contact a:hover { color: var(--orange); }
 
         footer {
-            text-align: center;
+            background: var(--white);
+            color: #86868b;
             padding: 40px;
-            opacity: 0.6;
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid #f2f2f2;
         }
 
-        /* --- MOBILE RESPONSIVENESS --- */
         @media (max-width: 768px) {
-            nav { padding: 20px; }
-            nav .links { display: none; } /* Add a hamburger menu here later if needed */
-            section { padding: 80px 5%; }
+            .scroll-section { text-align: center; justify-content: center; }
+            .visual-card h2 { font-size: 3rem; }
         }
     </style>
 </head>
 <body>
 
-<nav>
-    <h1>JOSHUA</h1>
-    <div class="links">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-    </div>
-</nav>
+<div class="canvas-bg"></div>
 
 <section class="hero">
-    <img src="https://via.placeholder.com/150" alt="Joshua" class="profile-img">
-    
-    <h2>Hi, I'm <span>Joshua</span></h2>
-    <p>
-        Student developer, entrepreneur, and pianist. 
-        I build ambitious digital solutions at the intersection of code, design, and business.
-    </p>
-
-    <div class="hero-socials">
-        <a href="https://github.com/joshua-51" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="mailto:joshua.kp0812@gmail.com"><i class="fas fa-envelope"></i></a>
-    </div>
-
-    <a href="#projects" class="cta-button">View My Work</a>
+    <h1>Hi, I'm <span>Joshua.</span></h1>
+    <p>Freshman Entrepreneur • Developer</p>
 </section>
 
-<section id="projects">
-    <h2 class="section-title">Featured Projects</h2>
-    <div class="projects-grid">
-        
-        <div class="card">
-            <i class="fas fa-code"></i>
-            <h3>Portfolio Website</h3>
-            <p>A high-performance responsive site built with HTML/CSS/JS. Focused on clean UI and smooth user experience.</p>
-        </div>
-
-        <div class="card">
-            <i class="fas fa-music"></i>
-            <h3>Piano Teaching</h3>
-            <p>Managing a growing business teaching music theory and performance, blending leadership with creativity.</p>
-        </div>
-
-        <div class="card">
-            <i class="fas fa-robot"></i>
-            <h3>AI & Automation</h3>
-            <p>Researching and developing workflow automation tools using the latest LLM frameworks and Python.</p>
-        </div>
-
+<section class="scroll-section reveal-left">
+    <div class="visual-card">
+        <h2>The Architect.</h2>
+        <p>I don't just write code; I scale ecosystems. As a core contributor to <strong>Pandas</strong> and <strong>Requests</strong>, my work supports the infrastructure of modern data science.</p>
+        <ul class="skill-list">
+            <li class="skill-tag">Open Source Core</li>
+            <li class="skill-tag">Python Architecture</li>
+            <li class="skill-tag">Backend Optimization</li>
+        </ul>
     </div>
 </section>
 
-<section id="skills">
-    <h2 class="section-title">Technical Stack</h2>
-    <div class="skills-container">
-        <div class="skill-tag">HTML5</div>
-        <div class="skill-tag">CSS3</div>
-        <div class="skill-tag">JavaScript</div>
-        <div class="skill-tag">Python</div>
-        <div class="skill-tag">Git & GitHub</div>
-        <div class="skill-tag">UI/UX Design</div>
-        <div class="skill-tag">Entrepreneurship</div>
-        <div class="skill-tag">Piano Performance</div>
+<section class="scroll-section content-right reveal-right">
+    <div class="visual-card">
+        <h2>The Logician.</h2>
+        <p>Winning isn't a goal; it's a byproduct of logic. Reaching the <strong>ACSL Global Finals</strong> highlights a mastery of finite automata and algorithmic efficiency.</p>
+        <ul class="skill-list">
+            <li class="skill-tag">Global Finalist</li>
+            <li class="skill-tag">Discrete Math</li>
+            <li class="skill-tag">Algorithm Design</li>
+        </ul>
     </div>
 </section>
 
-<section id="contact">
-    <div class="contact-box">
-        <h2 class="section-title">Let's Connect</h2>
-        <p>Currently looking for new opportunities and collaborations.</p>
-        <br>
-        <p>Email: <a href="mailto:joshua.kp0812@gmail.com">joshua.kp0812@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/joshua-51" target="_blank">github.com/joshua-51</a></p>
+<section class="scroll-section reveal-left">
+    <div class="visual-card">
+        <h2>The Virtuoso.</h2>
+        <p>Precision in music translates to precision in engineering. With <strong>4 Trinity College Certificates</strong>, my discipline is forged through 5+ years of Piano and orchestral performance.</p>
+        <ul class="skill-list">
+            <li class="skill-tag">4x Trinity Certified</li>
+            <li class="skill-tag">Multi-Instrumentalist</li>
+            <li class="skill-tag">Focused Performance</li>
+        </ul>
     </div>
+</section>
+
+<section class="portal-section">
+    <a href="https://github.com/joshua-51/ExtraCurricularActivityPortfolio.git" target="_blank" class="portal-banner">
+        <p style="color: #86868b; font-weight: 700; margin-bottom: 20px;">READY TO EXPLORE?</p>
+        <h2>View Projects</h2>
+    </a>
+</section>
+
+<div class="narrative-grid">
+    <div class="narrative-item">
+        <h3>Why Joshua?</h3>
+        <p>Most developers my age focus on syntax. I focus on impact. Being a Freshman balancing <strong>4 AP courses</strong> while maintaining major open-source libraries demonstrates a level of time-management and technical maturity that is rare.</p>
+    </div>
+    <div class="narrative-item">
+        <h3>Athletic Drive</h3>
+        <p>The tenacity I bring to the Tennis court—both club and recreational—is the same energy I bring to debugging complex systems. I thrive under pressure and competition.</p>
+    </div>
+    <div class="narrative-item">
+        <h3>Elite Certification</h3>
+        <p>From completing <strong>Harvard CS50</strong> to designing bespoke web experiences, my skills are verified by the world's most prestigious institutions and real-world repositories.</p>
+    </div>
+</div>
+
+<section class="footer-contact">
+    <p style="margin-bottom: 20px; font-weight: 700; color: #86868b;">START A CONVERSATION</p>
+    <a href="mailto:joshua.kp0812@gmail.com">joshua.kp0812@gmail.com</a>
 </section>
 
 <footer>
-    © 2026 Joshua | Built with passion & clean code.
+    © 2026 Joshua | Freshman Entrepreneur & Developer | Built for Excellence.
 </footer>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero Parallax
+    gsap.to(".hero h1", {
+        scrollTrigger: {
+            trigger: ".hero",
+            start: "top top",
+            scrub: true
+        },
+        y: 200,
+        opacity: 0,
+        scale: 0.8
+    });
+
+    // Reveal Logic for Sections
+    const revealsLeft = gsap.utils.toArray('.reveal-left');
+    revealsLeft.forEach(el => {
+        gsap.from(el, {
+            scrollTrigger: {
+                trigger: el,
+                start: "top 80%",
+                end: "top 20%",
+                scrub: 1
+            },
+            x: -150,
+            opacity: 0,
+            filter: "blur(10px)"
+        });
+    });
+
+    const revealsRight = gsap.utils.toArray('.reveal-right');
+    revealsRight.forEach(el => {
+        gsap.from(el, {
+            scrollTrigger: {
+                trigger: el,
+                start: "top 80%",
+                end: "top 20%",
+                scrub: 1
+            },
+            x: 150,
+            opacity: 0,
+            filter: "blur(10px)"
+        });
+    });
+
+    // Portal Zoom Effect
+    gsap.from(".portal-banner h2", {
+        scrollTrigger: {
+            trigger: ".portal-section",
+            start: "top 90%",
+            end: "bottom center",
+            scrub: 1
+        },
+        scale: 0.5,
+        opacity: 0
+    });
+
+</script>
 
 </body>
 </html>
